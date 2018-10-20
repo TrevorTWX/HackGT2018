@@ -44,15 +44,17 @@ def findpath():
     start_point = request.args.get('start')
     end_point = request.args.get('end')
 
-    edgelist_path = PATH + '/static/map_files/submap_1/edgelist.csv'
+    edgelist_path = PATH + '/static/map_files/' + submap_name + '/edgelist.csv'
     with open(edgelist_path, 'rb') as f:
         reader = csv.reader(f)
         edgelist = list(reader)
 
     pre_typed = [[0, 1, 2], [0, 3, 5], [1, 2, 3], [2, 3, 10]]
 
-    result = get_path(edgelist, int(start_point), int(end_point))
+    print 'the edgelist is ',edgelist
 
+    result = get_path(edgelist, int(start_point), int(end_point))
+    print 'result is: ',result
     return_result = str(result[0])
     for i in result[1:]:
         return_result = return_result + ' ' + str(i)

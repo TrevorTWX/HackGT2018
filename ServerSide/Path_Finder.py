@@ -7,6 +7,7 @@ import csv
 
 E = 0
 V = 0
+vertices = []
 
 class PriorityQueue(object):
     """
@@ -119,19 +120,22 @@ class PriorityQueue(object):
 # get the neighbors of vertex v
 def get_neighbors(edges, v):
     global V
-    neighbor_list = edges[v%V]
+    global vertices
+    neighbor_list = edges[vertices.index(v)]
     return_list = []
     for neighbor in neighbor_list:
+        # print neighbor
         return_list.append(neighbor[0])
+    # print 'asked neighors for ',v, ' and I found ',return_list
     return return_list
 
 def get_distance(edges, s, e):
     global V
-    neighbor_list = edges[s%V]
-    # print 'neighbor_list is ',neighbor_list
+    neighbor_list = edges[vertices.index(s)]
+    # # print 'neighbor_list is ',neighbor_list
     for neighbor in neighbor_list:
         if neighbor[0] == e:
-            # print 'we find'
+            # # print 'we find'
             return neighbor[1]
 
 def ucs_search(edges, start, goal):
@@ -162,7 +166,7 @@ def ucs_search(edges, start, goal):
                         traversing_node = parent[i][0]
                         break
             result_path.append(start)
-            # # print 'ucs: ',graph.explored_nodes()
+            # # # print 'ucs: ',graph.explored_nodes()
             return list(reversed(result_path))
         # if not done, keep searching ...
         # add all its unvisited neighbors to pending
@@ -186,18 +190,22 @@ def ucs_search(edges, start, goal):
                         pending.append((old_distance, neighbor_node))
                 else:
                 # add to pending with initial distance
-                    # print 'current node is ',current_node, '    neighbor_node is ', neighbor_node
-                    # print get_distance(edges, current_node, neighbor_node)
+                    # # print 'current node is ',current_node, '    neighbor_node is ', neighbor_node
+                    # # print get_distance(edges, current_node, neighbor_node)
                     pending.append((get_distance(edges, current_node, neighbor_node)+current_weight, neighbor_node))
                     parent.append([current_node,neighbor_node])
 
 # get the path from start_point to end_point using edgelist
 def get_path(edgelist, start_point, end_point):
+    # print 'I got a search for: ',start_point,' to ',end_point
     global V
     global E
+    global vertices
     for i in range(0,len(edgelist)):
-        for j in range(0,len(edgelist[0])):
+        for j in range(0,3):
+            # print 'orginal is ', edgelist[i][j]
             edgelist[i][j] = int(edgelist[i][j])
+            # print 'and I store it as ', edgelist[i][j]
     V = 0   # store the number of vertices
     len_e = len(edgelist)
     E = len_e*2   # store the number of edges
@@ -218,7 +226,9 @@ def get_path(edgelist, start_point, end_point):
     for i in range(0,V):
         edges.append([])
     for edge in edgelist:
-        edges[edge[0]%V].append((edge[1],edge[2]))
+        # print 'edge is ', edge
+        # print 'appended ',edge[1],' ',edge[2]
+        edges[vertices.index(edge[0])].append((edge[1],edge[2]))
 
     return ucs_search(edges, start_point, end_point)
 
@@ -228,7 +238,7 @@ def get_path(edgelist, start_point, end_point):
     # # sort the edgelist
     # edgelist = sorted(edgelist, key=lambda element: (element[0], element[1]))
     # for row in edgelist:
-    #     print row
+    #     # print row
     #
     # off_set = [0]*(V+1)    # off_set list
     # adjecent_v = [] # adjecent vertices
