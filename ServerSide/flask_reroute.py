@@ -5,6 +5,7 @@ from Path_Finder import *
 app = Flask(__name__)
 
 PATH = '/Users/trevor/Documents/My_Files/Projects/HackGT2018/ServerSide'
+# PATH = '/home/trevor/projects/HackGT2018/ServerSide'
 
 @app.route('/')
 def hello():
@@ -65,3 +66,4 @@ def findpath():
 
 if __name__=="__main__":
     app.run()
+    # app.run(host='136.59.238.149')
