@@ -12,4 +12,14 @@
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
     <string name="title_activity_save_not">Save_not</string>
+    <string name="button_save">Save</string>
+    <string name="button_start">Start</string>
+    <string name="button_delete">Delete</string>
+    <string name="activity_start">start a new route</string>
+    <string name="activity_save">Saved</string>
+
+    <string name="button_gtSaved">Go to Saved Location</string>
+    <string name="button_gtNew">Go to New Location</string>
+
+    <string name="button_confirm">OK</string>
 </resources>

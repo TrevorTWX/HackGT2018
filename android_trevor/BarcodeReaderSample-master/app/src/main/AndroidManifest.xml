@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,16 +22,10 @@
         <activity
             android:name=".barcode.BarcodeCaptureActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".Option.Save_not"
-            android:label="@string/title_activity_save_not"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".SaveActivity" />
+        <activity android:name=".StartActivity" />
+        <activity android:name=".NewPlace" />
+        <activity android:name=".NavigationActivity"></activity>
     </application>
 
 </manifest>
