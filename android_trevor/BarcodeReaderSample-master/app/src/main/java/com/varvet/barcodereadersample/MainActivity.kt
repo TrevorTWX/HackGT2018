@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                             },
                             Response.ErrorListener { textView.text = "That didn't work!" })
 
-// Add the request to the RequestQueue.
+                    // Add the request to the RequestQueue.
                     queue.add(stringRequest)
                 } else
                     mResultTextView.setText(R.string.no_barcode_captured)
