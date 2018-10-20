@@ -4,11 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
 import com.varvet.barcodereadersample.barcode.BarcodeCaptureActivity
+import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.Request
+import com.android.volley.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,7 +38,42 @@ class MainActivity : AppCompatActivity() {
                     val barcode = data.getParcelableExtra<Barcode>(BarcodeCaptureActivity.BarcodeObject)
                     val p = barcode.cornerPoints
                     mResultTextView.text = barcode.displayValue
+                    // change to on_capture layout
                     setContentView(R.layout.on_capture)
+
+                    val btn_save = findViewById<Button>(R.id.save_place)
+                    val btn_start = findViewById<Button>(R.id.choose_nav)
+
+                    btn_save.setOnClickListener(View.OnClickListener {
+                        // Start NewActivity.class
+                        val myIntent = Intent(this@MainActivity,
+                                SaveActivity::class.java)
+                        startActivity(myIntent)
+                    })
+
+                    btn_start.setOnClickListener(View.OnClickListener {
+                        val myIntent = Intent(this@MainActivity,
+                                StartActivity::class.java)
+                        startActivity(myIntent)
+                    })
+
+
+//                    // send html request and get back result
+//                    val queue = Volley.newRequestQueue(this)
+//                    val url = "http://45.77.223.113/?input=Trevor"
+//                    val textView = findViewById<TextView>(R.id.request_response)
+//
+//                    // Request a string response from the provided URL.
+//                    val stringRequest = StringRequest(Request.Method.GET, url,
+//                            Response.Listener<String> { response ->
+//                                // Display the first 500 characters of the response string.
+//                                textView.text = "Response is: ${response}"
+//                            },
+//                            Response.ErrorListener { textView.text = "That didn't work!" })
+//                    // Add the request to the RequestQueue.
+//                    queue.add(stringRequest)
+
+
                 } else
                     mResultTextView.setText(R.string.no_barcode_captured)
             } else
