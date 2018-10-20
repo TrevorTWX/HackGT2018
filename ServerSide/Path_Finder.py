@@ -195,6 +195,9 @@ def ucs_search(edges, start, goal):
 def get_path(edgelist, start_point, end_point):
     global V
     global E
+    for i in range(0,len(edgelist)):
+        for j in range(0,len(edgelist[0])):
+            edgelist[i][j] = int(edgelist[i][j])
     V = 0   # store the number of vertices
     len_e = len(edgelist)
     E = len_e*2   # store the number of edges

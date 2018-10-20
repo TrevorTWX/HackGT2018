@@ -41,7 +41,8 @@ def findpath():
     start_point = request.args.get('start')
     end_point = request.args.get('end')
 
-    edgelist_path = 'ServerSide/map_files/'+submap_name+'/edgelist.csv'
+    # edgelist_path = 'static/map_files/'+submap_name+'/edgelist.csv'
+    edgelist_path = '/Library/WebServer/Documents/map_files/submap_1/edgelist.csv'
     with open(edgelist_path, 'rb') as f:
         reader = csv.reader(f)
         edgelist = list(reader)
