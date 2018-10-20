@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, json
+from flask import Flask, render_template, request, json, send_from_directory, send_file
 import csv
 from Path_Finder import *
 
 app = Flask(__name__)
+
+PATH = '/Users/trevor/Documents/My_Files/Projects/HackGT2018/ServerSide'
 
 @app.route('/')
 def hello():
@@ -27,8 +29,9 @@ def map_download():
         file_name == 'edgelist.csv'
     if file_type == 'encoded':
         file_name == 'encoded.txt'
-    path = 'localhost/map_files/' + submap_name + '/' + file_name
-    return (path)
+    # path = 'localhost/map_files/' + submap_name + '/' + file_name
+    # return (path)
+    return send_file(PATH + '/static/map_files/' + submap_name + '/' + file_name, as_attachment=True)
 
 # find the best path
 @app.route('/findpath')
@@ -41,8 +44,7 @@ def findpath():
     start_point = request.args.get('start')
     end_point = request.args.get('end')
 
-    # edgelist_path = 'static/map_files/'+submap_name+'/edgelist.csv'
-    edgelist_path = '/Library/WebServer/Documents/map_files/submap_1/edgelist.csv'
+    edgelist_path = PATH + '/static/map_files/submap_1/edgelist.csv'
     with open(edgelist_path, 'rb') as f:
         reader = csv.reader(f)
         edgelist = list(reader)
