@@ -28,7 +28,7 @@ def map_download():
     if file_type == 'edgelist':
         file_name == 'edgelist.csv'
     if file_type == 'encoded':
-        file_name == 'encoded.txt'
+        file_name == 'encoded.csv'
     # path = 'localhost/map_files/' + submap_name + '/' + file_name
     # return (path)
     return send_file(PATH + '/static/map_files/' + submap_name + '/' + file_name, as_attachment=True)
