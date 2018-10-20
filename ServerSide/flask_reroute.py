@@ -11,11 +11,20 @@ def hello():
 @app.route('/map')
 def map_download():
     """
-    html request should be  ..../map?map='submap_name'%file='needed_file'
-    will return the path for download the needed file
+    html request should be  ..../map?map='submap_name'%file='needed_file_type'
+    will return the path for download the needed type of file
+    type:   PNG
+            edgelist
+            encoded
     """
     submap_name = request.args.get('map')
-    file_name = request.args.get('file')
+    file_type = request.args.get('file')
+    if file_type == 'PNG':
+        file_name = 'map.PNG'
+    if file_type == 'edgelist':
+        file_name == 'edgelist.txt'
+    if file_type == 'encoded':
+        file_name == 'encoded.txt'
     path = 'localhost/map_files/' + submap_name + '/' + file_name
     return (path)
 
