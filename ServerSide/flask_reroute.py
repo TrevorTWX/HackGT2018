@@ -51,10 +51,10 @@ def findpath():
 
     pre_typed = [[0, 1, 2], [0, 3, 5], [1, 2, 3], [2, 3, 10]]
 
-    print 'the edgelist is ',edgelist
+    # print 'the edgelist is ',edgelist
 
     result = get_path(edgelist, int(start_point), int(end_point))
-    print 'result is: ',result
+    # print 'result is: ',result
     return_result = str(result[0])
     for i in result[1:]:
         return_result = return_result + ' ' + str(i)
