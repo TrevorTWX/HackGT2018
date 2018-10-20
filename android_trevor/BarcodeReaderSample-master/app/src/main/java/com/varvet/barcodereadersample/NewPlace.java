@@ -3,7 +3,10 @@ package com.varvet.barcodereadersample;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,13 +17,18 @@ public class NewPlace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_place);
 
-        final TextView userInput = findViewById(R.id.new_place);
-
         Button button = findViewById(R.id.new_place_button);
 
-        userInput.setOnClickListener(new View.OnClickListener(){
+        String[] places = {"dairy","books","home","deli"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, places);
+        final AutoCompleteTextView autoTextView = findViewById(R.id.autoCompleteTextView);
+
+        autoTextView.setThreshold(3);
+        autoTextView.setAdapter(adapter);
+
+        autoTextView.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0){
-                userInput.setText("");
+                autoTextView.setText("");
             }
         });
 
@@ -28,7 +36,7 @@ public class NewPlace extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
-                String user_input_string = userInput.getText().toString();
+                String user_input_string = autoTextView.getText().toString();
 
                 TextView debug_view = findViewById(R.id.debug);
                 debug_view.setText(user_input_string);
@@ -39,5 +47,7 @@ public class NewPlace extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+
     }
 }
