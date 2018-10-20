@@ -15,23 +15,25 @@ def hello():
 @app.route('/map')
 def map_download():
     """
-    html request should be  ..../map?map='submap_name'&file='needed_file_type'
+    html request should be  ..../map?map='submap_name'&file='needed_file_type&attach='boolean''
     will return the path for download the needed type of file
     type:   PNG
             edgelist
             encoded
+    attach will decide return as a file or direct output
     """
     submap_name = request.args.get('map')
     file_type = request.args.get('file')
+    attached = request.args.get('attach')
     if file_type == 'PNG':
         file_name = 'map.PNG'
     if file_type == 'edgelist':
-        file_name == 'edgelist.csv'
+        file_name = 'edgelist.csv'
     if file_type == 'encoded':
-        file_name == 'encoded.csv'
+        file_name = 'encoded.csv'
     # path = 'localhost/map_files/' + submap_name + '/' + file_name
     # return (path)
-    return send_file(PATH + '/static/map_files/' + submap_name + '/' + file_name, as_attachment=True)
+    return send_file(PATH + '/static/map_files/' + submap_name + '/' + file_name, as_attachment=attached)
 
 # find the best path
 @app.route('/findpath')
