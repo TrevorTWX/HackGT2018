@@ -1,15 +1,23 @@
 from flask import Flask, render_template, request, json
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def hello():
     input_string = request.args.get('input')
     return ('hello ' + input_string)
 
-@app.route('/signUp')
-def signUp():
-    return render_template('signup.html')
+# Reroute for maps download
+@app.route('/map')
+def map_download():
+    """
+    html request should be  ..../map?map='submap_name'%file='needed_file'
+    will return the path for download the needed file
+    """
+    submap_name = request.args.get('map')
+    file_name = request.args.get('file')
+    path = 'localhost/map_files/' + submap_name + '/' + file_name
+    return (path)
 
 @app.route('/signUpUser', methods=['POST'])
 def signUpUser():
