@@ -44,4 +44,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_gtSaved" />
 
+    <TextView
+        android:id="@+id/response_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="347dp" />
+
 </android.support.constraint.ConstraintLayout>
