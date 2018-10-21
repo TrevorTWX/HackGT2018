@@ -28,7 +28,7 @@ public class AfterQR extends AppCompatActivity {
         Button btn_save = findViewById(R.id.save_place);
         Button btn_start = findViewById(R.id.choose_nav);
 
-        String[] splitted = message.split("/");
+      String[] splitted = message.split("/");
 
         final Context context = this;
 
@@ -56,6 +56,7 @@ public class AfterQR extends AppCompatActivity {
                 Intent myIntent = new Intent(AfterQR.this,
                         SaveActivity.class);
                 myIntent.putExtra("qrvalue", message);
+
                 startActivity(myIntent);
             }
         });
@@ -66,7 +67,8 @@ public class AfterQR extends AppCompatActivity {
                 // Start NewActivity.class
                 Intent myIntent = new Intent(AfterQR.this,
                         StartActivity.class);
-                myIntent.putExtra("qrvalue", message);
+
+              myIntent.putExtra("qrvalue", message);
                 startActivity(myIntent);
             }
         });
