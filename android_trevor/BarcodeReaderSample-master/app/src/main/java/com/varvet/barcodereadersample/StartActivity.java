@@ -3,7 +3,9 @@ package com.varvet.barcodereadersample;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -96,10 +98,44 @@ public class StartActivity extends AppCompatActivity {
 
         btn_gtNew.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent myIntent = new Intent(StartActivity.this,
+                final TextView mTextView = findViewById(R.id.response_path);
+                // Instantiate the RequestQueue.
+                RequestQueue queue = Volley.newRequestQueue(context);
+                String url ="http://35.237.145.71/getAdaptors?map=walmart";
+
+                // Request a string response from the provided URL.
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                mTextView.setText("Response is: "+ response.substring(0,500));
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mTextView.setText("That didn't work!");
+                    }
+                });
+                Log.d("mTextView_2",mTextView.getText().toString());
+                // Add the request to the RequestQueue.
+                queue.add(stringRequest);
+
+                Log.d("mTextView",mTextView.getText().toString());
+
+                final Intent myIntent = new Intent(StartActivity.this,
                         NewPlace.class);
-                myIntent.putExtra("qrvalue", message);
-                startActivity(myIntent);
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Do something after 5s = 5000ms
+                        String encoded_string = mTextView.getText().toString();
+                        myIntent.putExtra("qrvalue", message);
+                        myIntent.putExtra("encodes_value", encoded_string);
+                        startActivity(myIntent);
+                    }
+                }, 5000);
             }
         });
     }
