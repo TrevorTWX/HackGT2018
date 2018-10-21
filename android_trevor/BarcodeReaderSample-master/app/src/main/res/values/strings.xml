@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BarcodeReaderSample</string>
+    <string name="app_name">0rca Map</string>
 
     <!-- Strings related to MainActivity-->
     <string name="scan_barcode_button">Scan qrcode</string>
