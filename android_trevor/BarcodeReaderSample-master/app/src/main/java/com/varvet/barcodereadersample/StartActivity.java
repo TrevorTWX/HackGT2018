@@ -135,7 +135,7 @@ public class StartActivity extends AppCompatActivity {
                         myIntent.putExtra("encodes_value", encoded_string);
                         startActivity(myIntent);
                     }
-                }, 5000);
+                }, 3000);
             }
         });
     }

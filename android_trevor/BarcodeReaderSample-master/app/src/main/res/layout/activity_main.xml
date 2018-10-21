@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBeige"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.varvet.barcodereadersample.MainActivity">
 
@@ -11,24 +12,62 @@
         android:id="@+id/result_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/no_barcode_captured"
-        android:textSize="22sp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:autoLink="all"
         android:freezesText="true"
-        android:layout_centerVertical="true"
         android:gravity="center"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        app:layout_constraintBottom_toTopOf="@id/scan_barcode_button"/>
+        android:text="@string/no_barcode_captured"
+        android:textSize="22sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/scan_barcode_button" />
 
     <Button
         android:id="@+id/scan_barcode_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/scan_barcode_button"
+        android:layout_width="180dp"
+        android:layout_height="58dp"
         android:layout_below="@id/result_textview"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorGray"
+        android:text="@string/scan_barcode_button"
+        android:textColor="@color/colorBeige"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.7"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.793" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="375dp"
+        android:layout_height="414dp"
+        android:layout_marginBottom="136dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/result_textview"
+        app:layout_constraintStart_toEndOf="@+id/result_textview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="Orca Map"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/scan_barcode_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846" />
 </android.support.constraint.ConstraintLayout>
