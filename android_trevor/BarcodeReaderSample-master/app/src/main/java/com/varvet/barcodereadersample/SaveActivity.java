@@ -2,9 +2,19 @@ package com.varvet.barcodereadersample;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.support.design.widget.Snackbar;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ImageView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

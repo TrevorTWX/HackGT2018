@@ -12,6 +12,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.varvet.barcodereadersample.barcode.BarcodeCaptureActivity
 import com.android.volley.toolbox.Volley
 import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.ImageRequest
 import com.android.volley.Request
 import com.android.volley.Response
 
@@ -46,19 +47,21 @@ class MainActivity : AppCompatActivity() {
 
 
 //                    // send html request and get back result
-//                    val queue = Volley.newRequestQueue(this)
-//                    val url = "http://45.77.223.113/?input=Trevor"
-//                    val textView = findViewById<TextView>(R.id.request_response)
-//
-//                    // Request a string response from the provided URL.
-//                    val stringRequest = StringRequest(Request.Method.GET, url,
-//                            Response.Listener<String> { response ->
-//                                // Display the first 500 characters of the response string.
-//                                textView.text = "Response is: ${response}"
-//                            },
-//                            Response.ErrorListener { textView.text = "That didn't work!" })
-//                    // Add the request to the RequestQueue.
-//                    queue.add(stringRequest)
+                   val queue1 = Volley.newRequestQueue(this)
+                    val urlStr = "http://45.77.223.113/?input=Trevor"
+                    val textView = findViewById<TextView>(R.id.request_response)
+
+                    // Request a string response from the provided URL.
+                    val stringRequest = StringRequest(Request.Method.GET, urlStr,
+                            Response.Listener<String> { response ->
+                               // Display the first 500 characters of the response string.
+                               textView.text = "Response is: ${response}"
+                          },
+                           Response.ErrorListener { textView.text = "That didn't work!" })
+                   // Add the request to the RequestQueue.
+                    queue1.add(stringRequest)
+
+
 
 
                 } else
