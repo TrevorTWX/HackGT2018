@@ -44,4 +44,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choose_nav" />
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="401dp" />
 </android.support.constraint.ConstraintLayout>
