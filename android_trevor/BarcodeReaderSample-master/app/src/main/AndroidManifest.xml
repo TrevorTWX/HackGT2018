@@ -25,7 +25,8 @@
         <activity android:name=".SaveActivity" />
         <activity android:name=".StartActivity" />
         <activity android:name=".NewPlace" />
-        <activity android:name=".NavigationActivity"></activity>
+        <activity android:name=".NavigationActivity" />
+        <activity android:name=".AfterQR" />
     </application>
 
 </manifest>

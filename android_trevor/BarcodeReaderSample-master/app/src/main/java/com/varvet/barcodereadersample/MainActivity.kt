@@ -39,24 +39,11 @@ class MainActivity : AppCompatActivity() {
                     val barcode = data.getParcelableExtra<Barcode>(BarcodeCaptureActivity.BarcodeObject)
                     val p = barcode.cornerPoints
                     mResultTextView.text = barcode.displayValue
-                    // change to on_capture layout
-                    setContentView(R.layout.on_capture)
 
-                    val btn_save = findViewById<Button>(R.id.save_place)
-                    val btn_start = findViewById<Button>(R.id.choose_nav)
-
-                    btn_save.setOnClickListener(View.OnClickListener {
-                        // Start NewActivity.class
-                        val myIntent = Intent(this@MainActivity,
-                                SaveActivity::class.java)
-                        startActivity(myIntent)
-                    })
-
-                    btn_start.setOnClickListener(View.OnClickListener {
-                        val myIntent = Intent(this@MainActivity,
-                                StartActivity::class.java)
-                        startActivity(myIntent)
-                    })
+                    val intent = Intent(this@MainActivity,
+                            AfterQR::class.java)
+                    intent.putExtra("qrvalue", barcode.displayValue);
+                    startActivity(intent);
 
 
 //                    // send html request and get back result
