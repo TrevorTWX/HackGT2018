@@ -47,19 +47,19 @@ class MainActivity : AppCompatActivity() {
 
 
 //                    // send html request and get back result
-                   val queue1 = Volley.newRequestQueue(this)
-                    val urlStr = "http://45.77.223.113/?input=Trevor"
-                    val textView = findViewById<TextView>(R.id.request_response)
-
-                    // Request a string response from the provided URL.
-                    val stringRequest = StringRequest(Request.Method.GET, urlStr,
-                            Response.Listener<String> { response ->
-                               // Display the first 500 characters of the response string.
-                               textView.text = "Response is: ${response}"
-                          },
-                           Response.ErrorListener { textView.text = "That didn't work!" })
-                   // Add the request to the RequestQueue.
-                    queue1.add(stringRequest)
+//                   val queue1 = Volley.newRequestQueue(this)
+//                    val urlStr = "http://45.77.223.113/?input=Trevor"
+//                    val textView = findViewById<TextView>(R.id.intentdebug)
+//
+//                    // Request a string response from the provided URL.
+//                    val stringRequest = StringRequest(Request.Method.GET, urlStr,
+//                            Response.Listener<String> { response ->
+//                               // Display the first 500 characters of the response string.
+//                               textView.text = "Response is: ${response}"
+//                          },
+//                           Response.ErrorListener { textView.text = "That didn't work!" })
+//                   // Add the request to the RequestQueue.
+//                    queue1.add(stringRequest)
 
 
 
