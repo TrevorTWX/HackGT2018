@@ -25,7 +25,7 @@ public class NavigationActivity extends AppCompatActivity {
         String submap_name = new_splitted[0];
         int start_point = Integer.parseInt(new_splitted[1]);
         int end_point = Integer.parseInt(new_splitted[2]);
-        String url = "http://45.77.223.113/map?map=walmart&file=PNG&attach=true";
+        String url = "http://45.77.223.113/highlightpath?submap=" + submap_name + "&start_point=" + start_point + "&end_point=" + end_point;
         final ImageView map = findViewById(R.id.imageView);
 
         RequestQueue rq = Volley.newRequestQueue(this);
