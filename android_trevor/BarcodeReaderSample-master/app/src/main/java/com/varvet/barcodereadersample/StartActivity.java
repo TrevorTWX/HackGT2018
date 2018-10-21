@@ -60,35 +60,36 @@ public class StartActivity extends AppCompatActivity {
 
                 String submap_name = splitted[0];
                 int end_point = Integer.parseInt(splitted[1]);
-
-                                    // send html request and get back result
-                    RequestQueue queue = Volley.newRequestQueue(context);
-                    String url = "http://45.77.223.113/findpath?map=" + submap_name + "&start=" + start_point + "&end=" + end_point;
-
-                    final TextView textview = findViewById(R.id.response_path);
-
-                // Request a string response from the provided URL.
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                // Display the first 500 characters of the response string.
-                                textview.setText(response);
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        textview.setText("That didn't work!");
-                    }
-                });
-                // Add the request to the RequestQueue.
-                queue.add(stringRequest);
-
-                String path = textview.getText().toString();
+//
+//                                    // send html request and get back result
+//                    RequestQueue queue = Volley.newRequestQueue(context);
+//                    String url = "http://45.77.223.113/findpath?map=" + submap_name + "&start=" + start_point + "&end=" + end_point;
+//
+//                    final TextView textview = findViewById(R.id.response_path);
+//
+//                // Request a string response from the provided URL.
+//                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                        new Response.Listener<String>() {
+//                            @Override
+//                            public void onResponse(String response) {
+//                                // Display the first 500 characters of the response string.
+//                                textview.setText(response);
+//                            }
+//                        }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        textview.setText("That didn't work!");
+//                    }
+//                });
+//                // Add the request to the RequestQueue.
+//                queue.add(stringRequest);
+//
+//                String path = textview.getText().toString();
 
                 // Start NewActivity.class
                 Intent myIntent = new Intent(StartActivity.this,
                         NavigationActivity.class);
+                myIntent.putExtra("nav_value", submap_name + "/" + start_point + "/" + end_point);
                 startActivity(myIntent);
             }
         });
@@ -97,6 +98,7 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 Intent myIntent = new Intent(StartActivity.this,
                         NewPlace.class);
+                myIntent.putExtra("qrvalue", message);
                 startActivity(myIntent);
             }
         });
