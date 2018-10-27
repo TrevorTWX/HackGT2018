@@ -231,26 +231,3 @@ def get_path(edgelist, start_point, end_point):
         edges[vertices.index(edge[0])].append((edge[1],edge[2]))
 
     return ucs_search(edges, start_point, end_point)
-
-
-
-
-    # # sort the edgelist
-    # edgelist = sorted(edgelist, key=lambda element: (element[0], element[1]))
-    # for row in edgelist:
-    #     # print row
-    #
-    # off_set = [0]*(V+1)    # off_set list
-    # adjecent_v = [] # adjecent vertices
-    # distance = []   # distance for each edge
-    # neighbor_count = [0]*V # temperary list for storing how many neighbors a vertex has
-    # # fill the neighbor_count list and the adjecnet_v and distance
-    # for edge in edgelist:
-    #     neighbor_count[edge[0]] += 1
-    #     adjecent_v.append(edge[1])
-    #     distance.append(edge[2])
-    # # fill the off_set:
-    # off_set[0] = neighbor_count[0]-1
-    # for i in range(1,len(neighbor_count)):
-    #     off_set[i] = neighbor_count[i] + off_set[i-1]
-    # off_set[V] = off_set[V-1] + neighbor_count

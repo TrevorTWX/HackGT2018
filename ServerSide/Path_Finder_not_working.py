@@ -127,15 +127,14 @@ def getMatrix(path):
     # convert that to 2D list (list of lists of integers)
     pixels = [pixels[offset:offset+WIDTH] for offset in range(0, WIDTH*HEIGHT, WIDTH)]
 
-    mat = np.zeros((HEIGHT,WIDTH))
+    mat = np.zeros((WIDTH,HEIGHT))
     # print(mat)
 
-    for i in range(HEIGHT-1):
-        for j in range(WIDTH-1):
+    for j in range(HEIGHT-1):
+        for i in range(WIDTH-1):
             #if the pixel color is red
             if (200<= pixels[i][j][0] <= 255 and 0 <= pixels[i][j][1] <= 50 and 0<= pixels[i][j][2] <= 50):
                 mat[i][j] = 1
-    # print mat.tolist()
     return mat.tolist()
 
 def decode(vertice):
