@@ -7,14 +7,12 @@
     android:background="@color/colorBeige"
     tools:context=".NavigationActivity">
 
-    <ScrollView android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:layout_weight="1"
-        android:fadingEdge="none" android:scrollbars="none">
-
-        <ImageView android:id="@+id/imageView" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:scaleType="center" />
-
-    </ScrollView>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="matrix"
+        app:srcCompat="@color/colorWhite" />
 
     <ImageView
         android:id="@+id/imageView7"
