@@ -1,4 +1,4 @@
-# HackGT2018
+# OrcaMap
 ## Inspiration
 - We may experience difficulties looking for our cars or specific brands/things in a huge parking lot or a mall, but we are often disappointed by the fact that Google Maps doesn’t work because of weak signals. We realize the need for indoor navigation apps to fill the market vacancies, and we won’t be lost again in the next grocery shopping!
 
